@@ -1107,7 +1107,7 @@ document.getElementById("sheetBody").addEventListener("input",function(e){if(e.t
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sheet.hidden)closeSheet();});
 
 // ====== MISSIÓ: COMPTE ENRERE, SO, TUTORIAL ======
-var EXPIRY=new Date("2026-11-20T23:59:59").getTime(); // data de "autodestrucció" (edita-la el dia que publiquis l'app)
+var EXPIRY=new Date("2026-11-27T23:59:59").getTime(); // data de "autodestrucció" (edita-la el dia que publiquis l'app)
 var FORCE_BOOM=/[?&]boom\b/.test(location.search);   // ?boom a la URL per previsualitzar la pantalla final
 var TUTO_KEY="zuckos-tuto-v1";
 function $(id){return document.getElementById(id);}
@@ -1116,7 +1116,7 @@ function parts(ms){ms=Math.max(0,ms);var s=Math.floor(ms/1000);return {d:Math.fl
 function isExpired(){return FORCE_BOOM||Date.now()>=EXPIRY;}
 // --- compte enrere ---
 var missionAccepted=false,exploded=false;
-var JOKES=["Aquesta app s'autodestruirà el 20 de novembre. L'app, no vosaltres.","Recordeu: tallar el cable vermell NO fa que arribi la roba abans.","Aquesta app té els dies comptats. Més que alguns pressupostos.","Els pantalons no s'apunten sols. Això ja ho hem provat."];
+var JOKES=["Aquesta app s'autodestruirà el 27 de novembre. L'app, no vosaltres.","Recordeu: tallar el cable vermell NO fa que arribi la roba abans.","Aquesta app té els dies comptats. Més que alguns pressupostos.","Els pantalons no s'apunten sols. Això ja ho hem provat."];
 var jIdx=0;
 function showJoke(){var j=$("joke");if(!j)return;j.style.opacity=0;setTimeout(function(){j.textContent=JOKES[jIdx%JOKES.length];jIdx++;j.style.opacity=1;},350);}
 setInterval(function(){if(!$("splash").hidden)showJoke();},6000);
