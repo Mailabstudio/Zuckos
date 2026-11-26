@@ -161,6 +161,7 @@ td.r,th.r{text-align:right;white-space:nowrap}
 .mis .btn{margin-top:12px;font-size:1.05rem;padding:14px 22px;width:100%;max-width:340px}
 .mis .sm{font-size:.74rem;color:#9a8a8a}
 #boomScr{background:radial-gradient(ellipse at center,#ffb300 0%,#d62027 38%,#120405 85%);color:#fff;z-index:120;text-align:center}
+#boomScr .mis{margin:auto;padding:12px 0}
 #boomScr .mis h1{font-size:3rem;text-shadow:0 4px 0 #7a0c11}
 #boomScr .big{font-size:5.5rem;animation:pop .7s ease-out}
 @keyframes pop{0%{transform:scale(.1) rotate(-20deg);opacity:0}60%{transform:scale(1.3) rotate(6deg);opacity:1}100%{transform:scale(1)}}
@@ -195,6 +196,35 @@ body.shake{animation:shake .6s}
 .tdots{display:flex;gap:5px;justify-content:center;margin-bottom:8px}
 .tdots i{width:8px;height:8px;border-radius:50%;background:#ddd}.tdots i.on{background:var(--red)}
 .tfoot{display:flex;gap:8px;justify-content:space-between}
+
+#finalOv{position:fixed;inset:0;z-index:125;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;pointer-events:none;background:radial-gradient(ellipse at center,rgba(214,32,39,.0) 20%,rgba(10,0,0,.55) 100%);padding:16px;transition:background .4s}
+#finalOv.hot{background:radial-gradient(ellipse at center,rgba(214,32,39,.25) 10%,rgba(60,0,0,.8) 100%);animation:hotb .5s infinite alternate}
+@keyframes hotb{to{background:radial-gradient(ellipse at center,rgba(214,32,39,.5) 10%,rgba(90,0,0,.9) 100%)}}
+.fo-tag{font-weight:800;letter-spacing:.3em;font-size:.85rem;background:#d62027;padding:4px 12px;border-radius:6px}
+.fo-n{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:900;font-size:min(58vw,300px);line-height:1;color:#fff;text-shadow:0 0 30px #d62027,0 8px 0 #7a0c11}
+.fo-n.p{animation:fopop .9s ease-out}
+@keyframes fopop{0%{transform:scale(1.7);opacity:.2}30%{transform:scale(1);opacity:1}100%{transform:scale(.92)}}
+.fo-msg{font-weight:700;font-size:1.05rem;max-width:380px;min-height:3em;text-shadow:0 2px 6px #000}
+body.sk1 main,body.sk1 header,body.sk1 .cdbar,body.sk1 .bar{animation:sk1 .12s infinite}
+body.sk2 main,body.sk2 header,body.sk2 .cdbar,body.sk2 .bar{animation:sk2 .09s infinite}
+body.sk3 main,body.sk3 header,body.sk3 .cdbar,body.sk3 .bar{animation:sk3 .06s infinite}
+@keyframes sk1{0%,100%{transform:translate(0,0)}50%{transform:translate(-2px,1px)}}
+@keyframes sk2{0%,100%{transform:translate(2px,-2px)}50%{transform:translate(-5px,3px) rotate(.2deg)}}
+@keyframes sk3{0%,100%{transform:translate(7px,-4px) rotate(.4deg)}50%{transform:translate(-9px,5px) rotate(-.5deg)}}
+.cracks{position:fixed;inset:0;width:100%;height:100%;z-index:138;pointer-events:none}
+.cracks polyline{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 4px #000)}
+#prevBtn{position:fixed;left:50%;transform:translateX(-50%);bottom:84px;z-index:200;background:#1a0a0b;color:#fff;border:2px solid #d62027;border-radius:999px;padding:10px 18px;font-weight:800;font-size:.9rem;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.report{background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 14px;margin:12px auto 34px;max-width:340px;text-align:left;font-size:.88rem;position:relative}
+.report h3{margin:0 0 8px;font-size:.8rem;letter-spacing:.2em;text-align:center;color:#ffe600}
+.report .rl{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.2);opacity:0;transform:translateX(-12px);transition:all .35s}
+.report .rl.on{opacity:1;transform:none}
+.report .rl b{color:#ffe600;text-align:right}
+.fin{max-width:340px;margin:40px auto 14px;font-weight:700;font-size:1.02rem;line-height:1.4;color:#fff;text-shadow:0 2px 6px #000;min-height:5.6em}
+.fin b{color:#ffe600}.fin .cur2{display:inline-block;width:.5em;background:#ffe600;animation:blk .6s infinite}
+@keyframes blk{50%{opacity:0}}
+.rain{position:fixed;top:-40px;z-index:142;pointer-events:none}
+.stamp{position:absolute;right:-6px;bottom:-36px;border:4px solid #3ddc84;color:#3ddc84;font-weight:900;font-size:1rem;padding:4px 10px;border-radius:8px;transform:rotate(-12deg) scale(3);opacity:0;background:rgba(0,0,0,.6);letter-spacing:.08em}
+.stamp.on{opacity:1;transform:rotate(-12deg) scale(1);transition:transform .25s cubic-bezier(.3,1.6,.5,1),opacity .15s}
 @media(prefers-reduced-motion:reduce){.cur{transition:none}.cdbar.hot b,.bomb .led,.bomb .wire:after{animation:none}body.shake{animation:none}}
 @media(max-width:560px){.pick{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr 1fr;gap:10px}.card .bd{padding:9px}.card h3{font-size:.95rem}}
 @media print{header,.bar,.acts,.stusec,.sech,.lead,.grid,.note.np,.bkp,.toast{display:none!important}body{background:#fff}main{padding:0}.summary{border:none;padding:0}}
@@ -299,9 +329,13 @@ textarea.imp{width:100%;min-height:90px;padding:10px;border:1px solid var(--line
 <h1>BOOM!</h1>
 <p><b>L'app s'ha autodestruït.</b></p>
 <p>La missió ha acabat. Si falta alguna cosa per encarregar, escriu a mailab studio i us enviarem una nova missió.</p>
+<div class="report" id="report" hidden></div>
+<div class="fin" id="finLine"></div>
+<button class="btn o" id="boomBack" type="button" hidden style="margin-bottom:8px">↺ Tornar a l'app (només previsualització)</button>
 <button class="btn" id="boomPdf" type="button" hidden>Descarregar resum per a mailab (sense noms)</button>
 <button class="btn o" id="boomPdf2" type="button" hidden style="margin-top:8px">Descarregar llista per al centre (amb noms)</button>
 </div></div>
+<button id="prevBtn" type="button" hidden>💣 Previsualitzar final</button>
 <div class="toast" id="toast" hidden><span id="toastTx"></span><button type="button" id="toastUndo">Desfer</button></div>
 <div class="sheet" id="sheet" hidden><div class="bd2" id="sheetBd"></div><div class="pn"><div class="hd"><b id="sheetTtl">Cistella</b><button class="x" id="sheetX" aria-label="Tancar">✕</button></div><div id="sheetBody"></div></div></div>
 
@@ -1132,15 +1166,115 @@ function showBoom(live){
   ["splash","tuto"].forEach(function(i){$(i).hidden=true;});
   if(live){var fl=document.createElement("div");fl.className="flash";document.body.appendChild(fl);setTimeout(function(){fl.remove();},1100);document.body.classList.add("shake");setTimeout(function(){document.body.classList.remove("shake");},700);}
   $("boomScr").hidden=false;document.body.style.overflow="hidden";
+  try{playReport();}catch(e){}
   var has=state.students&&state.students.length>0;$("boomPdf").hidden=!has;$("boomPdf2").hidden=!has;
 }
 $("boomPdf").onclick=function(){try{makePdf("mailab");}catch(e){}};
 $("boomPdf2").onclick=function(){try{makePdf("centre");}catch(e){}};
 setInterval(function(){
-  if(exploded)return;
+  if(exploded||finalRun)return;
+  var left=EXPIRY-Date.now();
   if(isExpired()){showBoom(true);return;}
+  if(missionAccepted&&left<=10500){runFinale(Math.min(10,Math.max(1,Math.ceil(left/1000))),false);return;}
   renderCountdown();
 },1000);
+var PREVIEW=false,finalRun=false;
+var FMSG={10:"L'app es desintegra en…",9:"Guardeu els canvis. Ara.",8:"Això no és un simulacre.",7:"Si teniu una peça sense guardar, és el moment de plorar.",6:"Respireu fondo. O no.",5:"Algú ha dit «només una peça més»?",4:"Tallar el cable vermell NO serveix de res.",3:"Digueu-li a la vostra mare que l'estimeu.",2:"Ha estat un plaer, alumnes.",1:"Adéu, talles!"};
+function runFinale(secs,preview){
+  if(finalRun||exploded)return;finalRun=true;
+  try{closeSheet();}catch(e){}
+  ["toast","tuto","splash"].forEach(function(i){var e=$(i);if(e)e.hidden=true;});
+  $("prevBtn").hidden=true;document.body.style.overflow="hidden";
+  var ov=document.createElement("div");ov.id="finalOv";ov.innerHTML='<div class="fo-tag">AUTODESTRUCCIÓ</div><div class="fo-n" id="foN"></div><div class="fo-msg" id="foM"></div>';document.body.appendChild(ov);
+  var t=secs,end=Date.now()+secs*1000;
+  function tick(){
+    if(t<=0){finaleBoom(ov);return;}
+    var n=$("foN");n.textContent=t;n.classList.remove("p");void n.offsetWidth;n.classList.add("p");
+    $("foM").textContent=FMSG[t]||"";
+    if(t<=3)ov.classList.add("hot");
+    if(!calm()){document.body.classList.remove("sk1","sk2","sk3");if(t<=1)document.body.classList.add("sk3");else if(t<=3)document.body.classList.add("sk2");else if(t<=6)document.body.classList.add("sk1");}
+    t--;
+    var next=preview?1000:Math.max(50,end-Date.now()-t*1000);
+    setTimeout(tick,next);
+  }
+  tick();
+}
+function cracks(){
+  var W=innerWidth,H=innerHeight,ns="http://www.w3.org/2000/svg",sv=document.createElementNS(ns,"svg");sv.setAttribute("class","cracks");sv.setAttribute("viewBox","0 0 "+W+" "+H);
+  var cx=W/2,cy=H/2;
+  for(var i=0;i<11;i++){
+    var a=i/11*Math.PI*2+rnd(-.2,.2),x=cx,y=cy,pts=[x+","+y],len=Math.max(W,H)*rnd(.5,.9),steps=7;
+    for(var k=1;k<=steps;k++){a+=rnd(-.35,.35);var d=len/steps;x+=Math.cos(a)*d;y+=Math.sin(a)*d;pts.push(x.toFixed(0)+","+y.toFixed(0));}
+    var pl=document.createElementNS(ns,"polyline");pl.setAttribute("points",pts.join(" "));sv.appendChild(pl);
+    var L=len*1.3;pl.style.strokeDasharray=L;pl.style.strokeDashoffset=L;
+    pl.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:rnd(250,450),easing:"ease-out",fill:"forwards",delay:rnd(0,120)});
+  }
+  document.body.appendChild(sv);return sv;
+}
+function collapse(){
+  var sel=".cdbar,header,.stusec,#stu h2,#stu .lead,#stu .st.draft,#stu .saved,.sech,main>.lead,.card,.summary h2,#sumBody,.acts,.bkp,.bar";
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){if(e.closest("#boomScr,#finalOv,#sheet"))return false;var r=e.getBoundingClientRect();return r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight;});
+  els.forEach(function(e){
+    var dur=rnd(900,1700),del=rnd(0,900),rot=rnd(-35,35),dx=rnd(-60,60);
+    e.style.animation="none";e.style.transformOrigin=Math.random()<.5?"0 100%":"100% 100%";
+    var an=e.animate([{transform:"translate(0,0) rotate(0)",opacity:1},{transform:"translate("+(dx*.3)+"px,"+rnd(4,14)+"px) rotate("+(rot*.2)+"deg)",opacity:1,offset:.2},{transform:"translate("+dx+"px,"+(innerHeight*1.3)+"px) rotate("+rot+"deg)",opacity:.9}],{duration:dur,delay:del,easing:"cubic-bezier(.5,0,1,.6)",fill:"forwards"});
+    void an;
+  });
+}
+function finaleBoom(ov){
+  ov.remove();document.body.classList.remove("sk1","sk2","sk3");window.scrollTo(0,0);
+  if(calm()){finalRun=false;showBoom(false);return;}
+  var cx=innerWidth/2,cy=innerHeight/2;
+  var fl=document.createElement("div");fl.className="flash";document.body.appendChild(fl);setTimeout(function(){fl.remove();},1100);
+  document.body.classList.add("shake");setTimeout(function(){document.body.classList.remove("shake");},650);
+  var ring=fx("ring",cx,cy,40,40,"transform:translate(-50%,-50%)");var ra=ring.animate([{transform:"translate(-50%,-50%) scale(.2)",opacity:1},{transform:"translate(-50%,-50%) scale(18)",opacity:0}],{duration:900,easing:"ease-out"});ra.onfinish=function(){ring.remove();};
+  burst(cx,cy,60,["#ffb300","#ff6a00","#d62027","#fff2a8","#ffffff"],120,Math.max(300,innerWidth*0.6),12,1300);
+  for(var k=0;k<10;k++){var sz=rnd(80,150),sm=fx("smoke",cx+rnd(-60,60),cy+rnd(-40,40),sz,sz);var sa=sm.animate([{transform:"translate(-50%,-50%) scale(.3)",opacity:.9},{transform:"translate("+rnd(-160,160)+"px,"+rnd(-200,40)+"px) scale(3)",opacity:0}],{duration:rnd(1400,2200),easing:"ease-out"});sa.onfinish=(function(el){return function(){el.remove();};})(sm);}
+  var cr=cracks();
+  setTimeout(collapse,250);
+  setTimeout(function(){finalRun=false;showBoom(false);cr.animate([{opacity:1},{opacity:0}],{duration:600,fill:"forwards"}).onfinish=function(){cr.remove();};},3300);
+}
+// --- gran final: pluja, focs artificials i frase ---
+var FIN_TXT="L'equip de mailab studio s'arremanga, escalfa les màquines i es prepara per a la producció. 🧵 Les talles, ben comptades; el cafè, ben gastat. Ens veiem amb les peces!";
+function grandFinale(){
+  var el=$("finLine");if(!el||el.dataset.done)return;el.dataset.done=1;
+  if(calm()){el.textContent=FIN_TXT;return;}
+  var W=innerWidth,em=["👕","🧵","✨","🎉","🧢","🪡","💛","⚡"];
+  for(var i=0;i<34;i++)(function(i){setTimeout(function(){
+    var d=document.createElement("i");d.className="rain";d.textContent=em[i%em.length];d.style.left=rnd(0,W-24)+"px";d.style.fontSize=rnd(18,34)+"px";document.body.appendChild(d);
+    var a=d.animate([{transform:"translateY(0) rotate(0)",opacity:1},{transform:"translateY("+(innerHeight+80)+"px) rotate("+rnd(-360,360)+"deg)",opacity:.9}],{duration:rnd(2200,3800),easing:"ease-in"});a.onfinish=function(){d.remove();};
+  },i*90);})(i);
+  fireworks();setTimeout(fireworks,1100);setTimeout(fireworks,2200);
+  var k=0;el.innerHTML='<span class="cur2">&nbsp;</span>';
+  (function ty(){k++;el.innerHTML=FIN_TXT.slice(0,k).replace(/mailab studio/,"<b>mailab studio</b>")+'<span class="cur2">&nbsp;</span>';if(k<FIN_TXT.length)setTimeout(ty,38);else{el.innerHTML=FIN_TXT.replace(/mailab studio/,"<b>mailab studio</b>");el.animate([{transform:"scale(1)"},{transform:"scale(1.06)"},{transform:"scale(1)"}],{duration:600});}})();
+}
+// --- informe de missió ---
+function reportData(){
+  var sts=state.students||[],sample=false;
+  if(!sts.length&&PREVIEW){sample=true;sts=[{name:"Bad Bunny",items:[{p:"m01",s:"M",n:2},{p:"m02",s:"L",n:1}]},{name:"Bad Gyal",items:[{p:"m03",s:"S",n:3},{p:"m01",s:"S",n:1}]},{name:"Rosalía",items:[{p:"m02",s:"S",n:2}]}];}
+  var per={},sz={},best=null,bestN=0,tot=0;
+  sts.forEach(function(st){var n=0;st.items.forEach(function(it){var q=it.n||0;n+=q;tot+=q;per[it.p]=(per[it.p]||0)+q;sz[it.s]=(sz[it.s]||0)+q;});if(n>bestN){bestN=n;best=st;}});
+  function top(o){var k=null,v=0;for(var x in o)if(o[x]>v){v=o[x];k=x;}return k;}
+  var sp=top(per),ss=top(sz),pn=sp&&P(sp)?P(sp).name:"—";
+  return {sample:sample,al:sts.length,tot:tot,star:pn,size:ss||"—",who:best?best.name:"—",bn:bestN,pend:(state.queue||[]).length,cafes:Math.max(1,Math.round(sts.length*0.4))};
+}
+function playReport(){
+  var rp=$("report"),d=reportData();
+  if(!d.al&&!d.tot){rp.hidden=true;setTimeout(grandFinale,900);return;}
+  rp.hidden=false;
+  var rows=[["Alumnes reclutats",d.al],["Peces apuntades",d.tot],["Model estrella",d.star],["Talla més demanada",d.size],["Alumne/a amb més peces",d.who+" ("+d.bn+")"],["Noms fantasma pendents",d.pend],["Peces perdudes",0],["Cafès consumits",d.cafes],["Probabilitat d'èxit","100 %"]];
+  rp.innerHTML='<h3>INFORME DE MISSIÓ</h3>'+rows.map(function(r){return '<div class="rl"><span>'+r[0]+'</span><b data-v="'+r[1]+'">'+(typeof r[1]==="number"?0:r[1])+'</b></div>';}).join("")+'<div class="stamp" id="stamp">MISSIÓ COMPLETADA</div>';
+  var ls=[].slice.call(rp.querySelectorAll(".rl")),i=0;
+  function one(){
+    if(i>=ls.length){setTimeout(function(){$("stamp").classList.add("on");if(!calm()){var b=$("stamp").getBoundingClientRect();burst(b.left+b.width/2,b.top+b.height/2,18,["#3ddc84","#ffe600","#fff"],40,140,8,900);}setTimeout(grandFinale,900);},300);return;}
+    var l=ls[i++];l.classList.add("on");var b=l.querySelector("b"),v=b.getAttribute("data-v");
+    if(/^\d+$/.test(v)&&+v>0&&!calm()){var to=+v,st=Date.now();(function c(){var f=Math.min(1,(Date.now()-st)/350);b.textContent=Math.round(to*f);if(f<1)requestAnimationFrame(c);})();}else b.textContent=v;
+    setTimeout(one,calm()?0:380);
+  }
+  setTimeout(one,600);
+}
+if(PREVIEW){$("boomBack").hidden=false;$("boomBack").onclick=function(){location.reload();};}
+if(PREVIEW){var pb=$("prevBtn");pb.hidden=false;pb.onclick=function(){missionAccepted=true;runFinale(10,true);};}
 // --- explosió d'entrada: la bomba rebenta, surt el logo i apareix l'app ---
 var introRun=false,accepting=false;
 function rnd(a,b){return a+Math.random()*(b-a);}
@@ -1283,7 +1417,11 @@ $("tSkip").onclick=closeTuto;$("tDone").onclick=closeTuto;$("tAgain").onclick=ru
 $("tutoBtn").onclick=function(){openTuto();};
 function initMission(){
   renderCountdown();
-  if(isExpired()){showBoom(false);return;}
+  if(isExpired()){
+    var seen=false;try{seen=!!localStorage.getItem("zuckos-finale-seen");}catch(e){}
+    if(!seen&&!FORCE_BOOM&&!calm()){try{localStorage.setItem("zuckos-finale-seen","1");}catch(e){}setTimeout(function(){runFinale(10,false);},700);return;}
+    showBoom(false);return;
+  }
   $("splash").hidden=false;document.body.style.overflow="hidden";showJoke();
 }
 
